@@ -30,7 +30,7 @@ const ThumbnailComponent = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-[#00000080] z-10"></div>
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-[#000000cc] z-10"></div>
       <div className="absolute bottom-[20vh] mx-auto w-full z-20 flex flex-col justify-center items-center px-5">
         <h6
           data-aos="fade-up"
