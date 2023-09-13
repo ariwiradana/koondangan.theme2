@@ -3,11 +3,7 @@
 @tailwind utilities;
 @import "./analogue-font.css";
 
-
-.zoom-image {
-  transform-origin: center center;
-  transform: scale(2);
-  transition-property: transform;
-  transition-duration: 2s;
-  transition-timing-function: linear;
+.zoom-effect {
+  transition: transform 3s ease; /* 3-second zoom effect */
+  transform: scale(1);
 }

@@ -5,17 +5,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css/effect-fade";
 
-const CoverComponent = () => {
+const CoverComponent = ({ togglePlayPause, name }) => {
   const [open, setOpen] = useState(false);
   return (
     <div
-      className="fixed h-screen w-full transform transition-all ease-in-out duration-1000"
+      className="fixed h-screen w-full transform transition-all ease-in-out duration-1000 z-50"
       style={{
         bottom: open ? "100%" : 0,
         opacity: open ? 0 : 1,
       }}
     >
       <Swiper
+        onSlideChange={(slide) => console.log(slide)}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
@@ -67,7 +68,10 @@ const CoverComponent = () => {
           data-aos-delay="2200"
         >
           <Button
-            onClick={() => setOpen(true)}
+            onClick={() => {
+              setOpen(true);
+              togglePlayPause();
+            }}
             icon={<IoMdMailOpen size={20} />}
             title="Open Invitation"
           />
