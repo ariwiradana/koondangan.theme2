@@ -1,16 +1,21 @@
 import React from "react";
 import PersonCard from "../elements/person.card";
 import { images } from "@/constants/images";
+import useThumbnail from "@/hooks/useThumbnail";
+import useCover from "@/hooks/useCover";
 
-const Person = () => {
+const Persons = () => {
+  const { data: thumbnailImages } = useThumbnail(process.env.NEXT_PUBLIC_USER);
+  const { data: coverImages } = useCover(process.env.NEXT_PUBLIC_USER);
+
   return (
-    <div className="py-24 flex flex-col gap-y-24 max-w-md mx-auto">
+    <div className="py-32 flex flex-col gap-y-24 max-w-md mx-auto">
       <PersonCard
         username="ariwiradana"
         name="I Made Ari Wiradana"
         parentTitle="Anak pertama dari :"
         parent="I Wayan Darmayasa"
-        images={images}
+        images={thumbnailImages.thumbnails}
         position="left"
       />
       <PersonCard
@@ -18,11 +23,11 @@ const Person = () => {
         name="Ni Putu Juli Astuti"
         parentTitle="Anak pertama dari :"
         parent="I Wayan Darmayasa"
-        images={images}
+        images={coverImages.covers}
         position="right"
       />
     </div>
   );
 };
 
-export default Person;
+export default Persons;

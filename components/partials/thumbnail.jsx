@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import moment from "moment";
 import useTimeRemaining from "@/hooks/useTimeRemaining";
 import { images } from "@/constants/images";
-import { eventDate } from "@/constants/date";
+import useThumbnail from "@/hooks/useThumbnail";
 
 const ThumbnailComponent = () => {
-  const { timeRemaining, targetDate } = useTimeRemaining(eventDate);
+  const { timeRemaining, targetDate } = useTimeRemaining(
+    process.env.NEXT_PUBLIC_DATE
+  );
+  const { data } = useThumbnail(process.env.NEXT_PUBLIC_USER);
+
   return (
     <div className="h-screen w-full relative">
       <Swiper
@@ -19,18 +23,18 @@ const ThumbnailComponent = () => {
         speed={5000}
         modules={[Autoplay, EffectFade]}
       >
-        {images?.map((image) => (
-          <SwiperSlide key={image.alt}>
+        {data?.thumbnails?.map((image) => (
+          <SwiperSlide key={image._id}>
             <div
               style={{
-                backgroundImage: `url('${image.src}')`,
+                backgroundImage: `url('${image.base64}')`,
               }}
               className={`h-screen w-full bg-cover bg-center flex items-end justify-center`}
             ></div>
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-[#000000cc] z-10"></div>
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent to-black z-10"></div>
       <div className="absolute bottom-[20vh] mx-auto w-full z-20 flex flex-col justify-center items-center px-5">
         <h6
           data-aos="fade-up"
@@ -40,7 +44,7 @@ const ThumbnailComponent = () => {
           The Wedding Of
         </h6>
         <h3 className="font-analogue text-4xl text-white mt-4">
-          Putra & Putri
+          {process.env.NEXT_PUBLIC_NAME}
         </h3>
         <div className="flex justify-center gap-x-8 my-8">
           <h6 className="font-poppins uppercase text-white text-sm tracking-[2px] font-extralight">
@@ -50,7 +54,7 @@ const ThumbnailComponent = () => {
             {moment(targetDate).format("DD.MM.YYYY")}
           </h6>
         </div>
-        <div className="grid grid-cols-4 gap-x-3 mt-2 border-y py-4 border-y-white">
+        <div className="grid grid-cols-4 gap-x-3 mt-2 border-y py-4 border-y-gray-400">
           <div className="text-center">
             <h6 className="font-poppins uppercase text-white text-sm tracking-[2px] font-normal">
               {timeRemaining.days}

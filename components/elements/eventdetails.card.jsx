@@ -31,10 +31,21 @@ const EventDetailCard = ({
       right: "rotate-90",
     },
   };
+  const dataAos = {
+    left: "fade-right",
+    right: "fade-left",
+  };
+
   return (
-    <div className="p-8 max-w-md mx-auto">
+    <div
+      className="p-8 max-w-md mx-auto relative"
+      data-aos={dataAos[position]}
+      data-aos-duration="2000"
+    >
       <Swiper
         loop
+        noSwiping={true}
+        allowTouchMove={false}
         className={`w-full h-full overflow-hidden ${positions.rounded[position]}`}
         freeMode
         autoplay={{
@@ -44,14 +55,14 @@ const EventDetailCard = ({
         modules={[Autoplay, FreeMode]}
       >
         {images?.map((image) => (
-          <SwiperSlide key={image?.alt}>
-            <div className="w-full h-[200px]">
+          <SwiperSlide key={image?._id}>
+            <div className="w-full h-[200px] relative">
               <Image
-                alt={image?.alt}
+                alt={image?.title}
                 width={300}
                 height={300}
                 className="object-cover w-full h-full grayscale-0"
-                src={image?.src}
+                src={image?.base64}
               />
             </div>
           </SwiperSlide>

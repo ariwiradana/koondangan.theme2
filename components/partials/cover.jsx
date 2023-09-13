@@ -5,12 +5,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css/effect-fade";
 import { images } from "@/constants/images";
+import useCover from "@/hooks/useCover";
 
-const CoverComponent = ({ togglePlayPause, name }) => {
-  const [open, setOpen] = useState(false);
+const CoverComponent = ({ togglePlayPause }) => {
+  const { data, state } = useCover(process.env.NEXT_PUBLIC_USER);
+  const { open, setOpen } = state.open;
+
   return (
     <div
-      className="fixed h-screen w-full transform transition-all ease-in-out duration-1000 z-50"
+      className="fixed h-screen w-full transform transition-all ease-in-out duration-1000 z-50 bg-dark"
       style={{
         bottom: open ? "100%" : 0,
         opacity: open ? 0 : 1,
@@ -26,19 +29,19 @@ const CoverComponent = ({ togglePlayPause, name }) => {
         speed={5000}
         modules={[Autoplay, EffectFade]}
       >
-        {images?.map((image) => (
-          <SwiperSlide key={image.alt}>
+        {data?.covers?.map((image) => (
+          <SwiperSlide key={image.title}>
             <div
               style={{
-                backgroundImage: `url('${image.src}')`,
+                backgroundImage: `url('${image.base64}')`,
               }}
               className={`h-screen w-full bg-cover bg-center flex items-end justify-center`}
             ></div>
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-black z-10"></div>
-      <div className="absolute bottom-32 mx-auto w-full z-20 flex flex-col justify-center items-center">
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent to-black z-10"></div>
+      <div className="absolute bottom-24 mx-auto w-full z-20 flex flex-col justify-center items-center">
         <h6
           data-aos="fade-up"
           data-aos-duration="2000"
@@ -52,7 +55,7 @@ const CoverComponent = ({ togglePlayPause, name }) => {
           data-aos-duration="2000"
           className="font-analogue text-4xl text-white mt-4"
         >
-          Putra & Putri
+          {process.env.NEXT_PUBLIC_NAME}
         </h3>
         <div
           className="text-center"

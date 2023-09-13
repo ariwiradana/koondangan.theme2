@@ -2,27 +2,38 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 
 const useTimeRemaining = (dateString) => {
-  const targetDate = moment(dateString, "YYYY-MM-DD");
-  const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
-
-  function calculateTimeRemaining() {
-    const now = moment();
-    const duration = moment.duration(targetDate.diff(now));
-    return {
-      days: duration.days(),
-      hours: duration.hours(),
-      minutes: duration.minutes(),
-      seconds: duration.seconds(),
-    };
-  }
+  const [targetDate] = useState(moment(dateString));
+  const [timeRemaining, setTimeRemaining] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTimeRemaining(calculateTimeRemaining());
+      const now = moment();
+      const timeDiff = targetDate.diff(now);
+
+      if (timeDiff <= 0) {
+        clearInterval(intervalId);
+        return;
+      }
+
+      const duration = moment.duration(timeDiff);
+      const days = duration.days();
+      const hours = duration.hours();
+      const minutes = duration.minutes();
+      const seconds = duration.seconds();
+
+      setTimeRemaining({ days, hours, minutes, seconds });
     }, 1000);
 
-    return () => clearInterval(intervalId);
-  }, []);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [targetDate]);
+
   return { timeRemaining, targetDate };
 };
 

@@ -1,1 +1,0 @@
-export const eventDate = "2023-09-17";
