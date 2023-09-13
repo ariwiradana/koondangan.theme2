@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import "./analogue-font.css";
+@import "./creattion-font.css";
 
 .zoom-effect {
   transition: transform 3s ease; /* 3-second zoom effect */

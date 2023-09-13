@@ -7,9 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        dark: "#5e5e5e",
+        container: "#f8f8f8",
+        background: "#ededed",
+      },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         analogue: ["Analogue", "sans"],
+        creattion: ["Creattion", "sans-serif"],
       },
     },
   },

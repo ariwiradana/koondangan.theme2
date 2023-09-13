@@ -2,8 +2,9 @@ import React from "react";
 
 export const Button = ({ title, icon, variant, size, ...props }) => {
   const variants = {
-    primary: "bg-gray-600 text-white",
-    white: "bg-white text-gray-700",
+    primary: "bg-dark text-white",
+    white: "bg-white text-dark",
+    outlined: "bg-transparent text-dark border border-dark"
   };
   const sizes = {
     small: "py-1 px-3 text-sm font-extralight",

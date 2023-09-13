@@ -57,17 +57,17 @@ const PersonCard = ({
           </Swiper>
         </div>
         <div
-          className={`w-full h-full bg-gray-100 absolute ${bgPosition[position]}`}
+          className={`w-full h-full bg-background absolute ${bgPosition[position]}`}
         ></div>
       </div>
       <div className={`mt-16 px-8 flex flex-col ${pos[position]}`}>
         <h4 className="font-light font-analogue text-3xl text-gray-600">
           {name}
         </h4>
-        <h6 className="font-poppins font-light text-gray-500 text-sm leading-7 mt-4">
+        <h6 className="font-poppins font-light text-dark text-sm leading-7 mt-4">
           {parentTitle}
         </h6>
-        <h6 className="font-poppins font-normal text-gray-500 text-sm mb-6">
+        <h6 className="font-poppins font-normal text-dark text-sm mb-6">
           {parent}
         </h6>
         <Link href={url || ""}>

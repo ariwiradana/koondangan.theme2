@@ -4,9 +4,10 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import moment from "moment";
 import useTimeRemaining from "@/hooks/useTimeRemaining";
 import { images } from "@/constants/images";
+import { eventDate } from "@/constants/date";
 
 const ThumbnailComponent = () => {
-  const { timeRemaining, targetDate } = useTimeRemaining("2023-09-17");
+  const { timeRemaining, targetDate } = useTimeRemaining(eventDate);
   return (
     <div className="h-screen w-full relative">
       <Swiper
@@ -29,7 +30,7 @@ const ThumbnailComponent = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-[#00000050] z-10"></div>
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-[#00000080] z-10"></div>
       <div className="absolute bottom-[15vh] mx-auto w-full z-20 flex flex-col justify-center items-center px-5">
         <h6
           data-aos="fade-up"
