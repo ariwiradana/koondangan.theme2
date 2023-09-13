@@ -1,9 +1,9 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
-import "swiper/css/effect-fade";
 import moment from "moment";
 import useTimeRemaining from "@/hooks/useTimeRemaining";
+import { images } from "@/constants/images";
 
 const ThumbnailComponent = () => {
   const { timeRemaining, targetDate } = useTimeRemaining("2023-09-17");
@@ -18,12 +18,16 @@ const ThumbnailComponent = () => {
         speed={5000}
         modules={[Autoplay, EffectFade]}
       >
-        <SwiperSlide>
-          <div className="h-screen w-full bg-[url('/images/cover.webp')] bg-cover bg-center flex items-end justify-center"></div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="h-screen w-full bg-[url('/images/cover2.webp')] bg-cover bg-center flex items-end justify-center"></div>
-        </SwiperSlide>
+        {images?.map((image) => (
+          <SwiperSlide key={image.alt}>
+            <div
+              style={{
+                backgroundImage: `url('${image.src}')`,
+              }}
+              className={`h-screen w-full bg-cover bg-center flex items-end justify-center`}
+            ></div>
+          </SwiperSlide>
+        ))}
       </Swiper>
       <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-[#00000050] z-10"></div>
       <div className="absolute bottom-[15vh] mx-auto w-full z-20 flex flex-col justify-center items-center px-5">

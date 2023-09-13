@@ -4,6 +4,7 @@ import { Button } from "../elements/button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css/effect-fade";
+import { images } from "@/constants/images";
 
 const CoverComponent = ({ togglePlayPause, name }) => {
   const [open, setOpen] = useState(false);
@@ -25,12 +26,16 @@ const CoverComponent = ({ togglePlayPause, name }) => {
         speed={5000}
         modules={[Autoplay, EffectFade]}
       >
-        <SwiperSlide>
-          <div className="h-screen w-full bg-[url('/images/cover.webp')] bg-cover bg-center flex items-end justify-center"></div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="h-screen w-full bg-[url('/images/cover2.webp')] bg-cover bg-center flex items-end justify-center"></div>
-        </SwiperSlide>
+        {images?.map((image) => (
+          <SwiperSlide key={image.alt}>
+            <div
+              style={{
+                backgroundImage: `url('${image.src}')`,
+              }}
+              className={`h-screen w-full bg-cover bg-center flex items-end justify-center`}
+            ></div>
+          </SwiperSlide>
+        ))}
       </Swiper>
       <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-black z-10"></div>
       <div className="absolute bottom-32 mx-auto w-full z-20 flex flex-col justify-center items-center">
@@ -68,9 +73,11 @@ const CoverComponent = ({ togglePlayPause, name }) => {
           data-aos-delay="2200"
         >
           <Button
+            variant="white"
+            size="medium"
             onClick={() => {
               setOpen(true);
-              togglePlayPause();
+              // togglePlayPause();
             }}
             icon={<IoMdMailOpen size={20} />}
             title="Open Invitation"

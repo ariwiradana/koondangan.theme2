@@ -1,5 +1,6 @@
 import ButtonMusic from "@/components/elements/button.music";
 import CoverComponent from "@/components/partials/cover";
+import Person from "@/components/partials/person";
 import ThumbnailComponent from "@/components/partials/thumbnail";
 import usePlayMusic from "@/hooks/usePlayMusic";
 import React from "react";
@@ -15,6 +16,7 @@ const Home = () => {
       />
       <CoverComponent togglePlayPause={togglePlayPause} />
       <ThumbnailComponent />
+      <Person />
     </>
   );
 };
