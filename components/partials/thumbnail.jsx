@@ -50,7 +50,7 @@ const ThumbnailComponent = () => {
             {moment(targetDate).format("DD.MM.YYYY")}
           </h6>
         </div>
-        <div className="grid grid-cols-4 gap-x-3 mt-2">
+        <div className="grid grid-cols-4 gap-x-3 mt-2 border-y py-4 border-y-white">
           <div className="text-center">
             <h6 className="font-poppins uppercase text-white text-sm tracking-[2px] font-normal">
               {timeRemaining.days}

@@ -60,7 +60,7 @@ const PersonCard = ({
           className={`w-full h-full bg-background absolute ${bgPosition[position]}`}
         ></div>
       </div>
-      <div className={`mt-16 px-8 flex flex-col ${pos[position]}`}>
+      <div className={`mt-16 px-8 flex flex-col w-full ${pos[position]}`}>
         <h4 className="font-light font-analogue text-3xl text-gray-600">
           {name}
         </h4>
@@ -70,14 +70,16 @@ const PersonCard = ({
         <h6 className="font-poppins font-normal text-dark text-sm mb-6">
           {parent}
         </h6>
-        <Link href={url || ""}>
-          <Button
-            icon={<FaInstagram />}
-            size="small"
-            variant="primary"
-            title={username}
-          />
-        </Link>
+        <div className="flex items-center gap-x-4 w-full">
+          <Link href={url || ""}>
+            <Button
+              icon={<FaInstagram />}
+              size="small"
+              variant="primary"
+              title={username}
+            />
+          </Link>
+        </div>
       </div>
     </div>
   );
