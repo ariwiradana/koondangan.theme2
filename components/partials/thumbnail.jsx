@@ -31,7 +31,7 @@ const ThumbnailComponent = () => {
         ))}
       </Swiper>
       <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-[#00000080] z-10"></div>
-      <div className="absolute bottom-[15vh] mx-auto w-full z-20 flex flex-col justify-center items-center px-5">
+      <div className="absolute bottom-[20vh] mx-auto w-full z-20 flex flex-col justify-center items-center px-5">
         <h6
           data-aos="fade-up"
           data-aos-duration="2000"
@@ -50,7 +50,7 @@ const ThumbnailComponent = () => {
             {moment(targetDate).format("DD.MM.YYYY")}
           </h6>
         </div>
-        <div className="grid grid-cols-4 gap-x-6 mt-2">
+        <div className="grid grid-cols-4 gap-x-3 mt-2">
           <div className="text-center">
             <h6 className="font-poppins uppercase text-white text-sm tracking-[2px] font-normal">
               {timeRemaining.days}

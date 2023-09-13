@@ -15,12 +15,27 @@ const EventDetailCard = ({
   address,
   mapUrl,
   btnMapTitle,
+  position,
 }) => {
+  const positions = {
+    rounded: {
+      left: "rounded-tr-[100px]",
+      right: "rounded-tl-[100px]",
+    },
+    flex: {
+      left: "flex-row",
+      right: "flex-row-reverse",
+    },
+    title: {
+      left: "-rotate-90",
+      right: "rotate-90",
+    },
+  };
   return (
     <div className="p-8">
       <Swiper
         loop
-        className="w-full h-full rounded-tr-[100px] overflow-hidden"
+        className={`w-full h-full overflow-hidden ${positions.rounded[position]}`}
         freeMode
         autoplay={{
           disableOnInteraction: false,
@@ -35,16 +50,18 @@ const EventDetailCard = ({
                 alt={image?.alt}
                 width={300}
                 height={300}
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full grayscale-0"
                 src={image?.src}
               />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="flex">
+      <div className={`flex ${positions.flex[position]}`}>
         <div className="bg-dark flex justify-center items-center max-w-[60px]">
-          <h4 className="-rotate-90 text-white font-analogue text-3xl">
+          <h4
+            className={`${positions.title[position]} text-white font-analogue text-3xl`}
+          >
             {title}
           </h4>
         </div>
