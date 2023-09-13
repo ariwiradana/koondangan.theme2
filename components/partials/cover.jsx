@@ -77,7 +77,7 @@ const CoverComponent = ({ togglePlayPause, name }) => {
             size="medium"
             onClick={() => {
               setOpen(true);
-              // togglePlayPause();
+              togglePlayPause();
             }}
             icon={<IoMdMailOpen size={20} />}
             title="Open Invitation"
