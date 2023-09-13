@@ -34,7 +34,7 @@ const EventDetails = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="absolute inset-0 z-30 py-16">
+      <div className="absolute inset-0 z-30 py-14">
         <div className="flex items-center gap-x-8 mb-4">
           <div className="pl-8">
             <h3 className="font-analogue text-white text-4xl italic font-light">
