@@ -4,7 +4,7 @@ import { images } from "@/constants/images";
 
 const Person = () => {
   return (
-    <div className="py-24 flex flex-col gap-y-24">
+    <div className="py-24 flex flex-col gap-y-24 max-w-md mx-auto">
       <PersonCard
         username="ariwiradana"
         name="I Made Ari Wiradana"

@@ -32,7 +32,7 @@ const EventDetailCard = ({
     },
   };
   return (
-    <div className="p-8">
+    <div className="p-8 max-w-md mx-auto">
       <Swiper
         loop
         className={`w-full h-full overflow-hidden ${positions.rounded[position]}`}

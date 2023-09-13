@@ -15,7 +15,7 @@ const EventDetails = () => {
     >
       <div className="w-full h-full absolute inset-0 bg-dark bg-opacity-80 z-10"></div>
       <div className="py-14 relative z-20">
-        <div className="flex items-center gap-x-8 mb-4">
+        <div className="flex items-center gap-x-8 mb-4 max-w-md mx-auto">
           <div className="pl-8">
             <h3 className="font-analogue text-white text-4xl italic font-light">
               Wedding
