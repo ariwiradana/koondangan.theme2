@@ -1,24 +1,23 @@
 const Jimp = require("jimp");
 
-
-export async function resizeImage(inputFilePath, percentage) {
+export async function resizeImage(inputBuffer) {
   try {
-    // Read the original image
-    const image = await Jimp.read(inputFilePath);
+    const targetSizeInBytes = 500000;
+    let image = await Jimp.read(inputBuffer);
+    const quality = 80; // Adjust the quality as needed to reach the target size
 
-    // Calculate new dimensions based on the percentage
-    const newWidth = Math.round(image.getWidth() * (percentage / 100));
-    const newHeight = Math.round(image.getHeight() * (percentage / 100));
+    while (
+      Buffer.from(await image.getBufferAsync(Jimp.MIME_JPEG)).length >
+      targetSizeInBytes
+    ) {
+      // Resize the image while its size is larger than the target size
+      image.quality(quality);
+      image.scale(0.9); // You can adjust the scaling factor as needed
+    }
 
-    // Resize the image
-    image.resize(newWidth, newHeight);
-
-    // Get the resized image as a buffer
-    const resizedBuffer = await image.getBufferAsync(Jimp.MIME_JPEG);
-    return resizedBuffer;
-
-    // Use resizedBuffer for further processing or return it as needed
+    return await image.getBufferAsync(Jimp.MIME_JPEG);
   } catch (error) {
-    console.error("Error resizing image:", error);
+    console.error("Error:", error);
+    throw error;
   }
 }

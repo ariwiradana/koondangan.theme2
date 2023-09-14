@@ -33,7 +33,7 @@ export default async (req, res) => {
         const user = fields?.user[0];
 
         console.log("Resize image...");
-        const resizedImage = await resizeImage(newImage.filepath, 50);
+        const resizedImage = await resizeImage(newImage.filepath);
 
         const folder = "koondangan";
         const options = {
