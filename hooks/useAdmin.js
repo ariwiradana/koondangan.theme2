@@ -62,8 +62,13 @@ const useAdmin = (user) => {
       });
       mutate();
       setOpenDialog(false);
+
+      if ("message" in response.data) {
+        alert(response?.data?.message);
+      }
     } catch (error) {
       console.error("Error:", error);
+      alert(error?.response?.data?.message);
     } finally {
       setAddLoading(false);
     }
