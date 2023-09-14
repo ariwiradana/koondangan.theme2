@@ -58,7 +58,7 @@ const PersonCard = ({
                     width={300}
                     height={300}
                     className="object-cover w-full h-full"
-                    src={image?.base64}
+                    src={image?.url}
                   />
                 </div>
               </SwiperSlide>

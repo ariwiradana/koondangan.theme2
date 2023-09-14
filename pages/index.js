@@ -4,6 +4,7 @@ import EventDetails from "@/components/partials/eventdetails";
 import Person from "@/components/partials/persons";
 import ThumbnailComponent from "@/components/partials/thumbnail";
 import usePlayMusic from "@/hooks/usePlayMusic";
+import Image from "next/image";
 import React from "react";
 
 const Home = () => {

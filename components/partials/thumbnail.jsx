@@ -27,7 +27,7 @@ const ThumbnailComponent = () => {
           <SwiperSlide key={image._id}>
             <div
               style={{
-                backgroundImage: `url('${image.base64}')`,
+                backgroundImage: `url(${image?.url})`,
               }}
               className={`h-screen w-full bg-cover bg-center flex items-end justify-center`}
             ></div>
