@@ -1,6 +1,7 @@
 import ButtonMusic from "@/components/elements/button.music";
 import CoverComponent from "@/components/partials/cover";
 import EventDetails from "@/components/partials/eventdetails";
+import Gallery from "@/components/partials/gallery";
 import Person from "@/components/partials/persons";
 import ThumbnailComponent from "@/components/partials/thumbnail";
 import usePlayMusic from "@/hooks/usePlayMusic";
@@ -22,6 +23,7 @@ const Home = () => {
       <ThumbnailComponent name={name} />
       <Person />
       <EventDetails />
+      <Gallery />
     </>
   );
 };

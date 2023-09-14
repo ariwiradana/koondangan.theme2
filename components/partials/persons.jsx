@@ -7,7 +7,7 @@ const Persons = () => {
 
   console.log({ data });
   return (
-    <div className="py-32 flex lg:grid lg:grid-cols-2 flex-col max-w-screen-md mx-auto gap-y-24 w-full">
+    <div className="py-32 flex md:grid md:grid-cols-2 flex-col max-w-screen-md mx-auto gap-y-24 w-full">
       <PersonCard
         username="ariwiradana"
         name="I Made Ari Wiradana"

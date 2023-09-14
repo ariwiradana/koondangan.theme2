@@ -9,6 +9,8 @@ const schema = new mongoose.Schema({
   type: String,
   user: String,
   url: String,
+  width: Number,
+  height: Number,
 });
 
 export default mongoose.models.Image || mongoose.model("Image", schema);

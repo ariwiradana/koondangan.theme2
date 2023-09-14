@@ -12,7 +12,7 @@ export const config = {
   },
 };
 
-export default async (req, res) => {
+export default async function handler(req, res) {
   switch (req.method) {
     case "GET":
       try {
@@ -62,6 +62,8 @@ export default async (req, res) => {
           user,
           type,
           url: uploadedImage?.url,
+          width: uploadedImage?.width,
+          height: uploadedImage?.height,
         });
 
         console.log("Upload image to mongodb...");
@@ -100,7 +102,7 @@ export default async (req, res) => {
       res.status(404).json({ error: true, message: "Route not found" });
       break;
   }
-};
+}
 
 async function uploadToCloudinary(buffer, options) {
   return new Promise((resolve, reject) => {

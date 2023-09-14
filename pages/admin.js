@@ -16,6 +16,7 @@ const selectOptions = [
   { value: "cover", label: "Cover" },
   { value: "thumbnail", label: "Thumbnail" },
   { value: "person", label: "Person" },
+  { value: "gallery", label: "Gallery" },
 ];
 
 const YourPage = () => {
@@ -120,7 +121,6 @@ const YourPage = () => {
               >
                 <div className="relative h-48">
                   <Image
-                    placeholder="blur"
                     quality={50}
                     src={card.url}
                     alt={card._id}
