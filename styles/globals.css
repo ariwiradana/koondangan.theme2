@@ -8,3 +8,6 @@
   transition: transform 3s ease; /* 3-second zoom effect */
   transform: scale(1);
 }
+.no-scroll {
+  overflow: hidden;
+}

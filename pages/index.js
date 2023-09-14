@@ -17,11 +17,11 @@ const Home = () => {
         audioRef={audioRef}
         isPlaying={isPlaying}
         togglePlayPause={togglePlayPause}
-      />yhg
+      />
       <CoverComponent togglePlayPause={togglePlayPause} />
       <ThumbnailComponent name={name} />
       <Person />
-      {/* <EventDetails /> */}
+      <EventDetails />
     </>
   );
 };

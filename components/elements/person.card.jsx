@@ -25,17 +25,15 @@ const PersonCard = ({
   };
 
   const dataAos = {
-    left: "fade-right",
-    right: "fade-left",
+    left: "fade-up",
+    right: "fade-up",
   };
 
   return (
-    <div className={`flex flex-col w-full ${pos[position]}`}>
-      <div
-        className="relative w-[300px] h-[400px] flex justify-end"
-        data-aos={dataAos[position]}
-        data-aos-duration="3000"
-      >
+    <div
+      className={`flex flex-col w-full ${pos[position]}`}
+    >
+      <div className="relative w-[300px] h-[400px] flex justify-end">
         <div className="w-full h-full relative z-[2] bg-cover">
           <div className="w-full h-full absolute inset-0 bg-transparent z-10"></div>
           <Swiper
@@ -72,33 +70,21 @@ const PersonCard = ({
       <div className={`mt-16 px-8 flex flex-col w-full ${pos[position]}`}>
         <h4
           className="font-light font-analogue text-3xl text-gray-600"
-          data-aos={dataAos[position]}
-          data-aos-duration="1000"
-          data-aos-delay="300"
         >
           {name}
         </h4>
         <h6
           className="font-poppins font-light text-dark text-sm leading-7 mt-4"
-          data-aos={dataAos[position]}
-          data-aos-duration="1000"
-          data-aos-delay="600"
         >
           {parentTitle}
         </h6>
         <h6
           className="font-poppins font-normal text-dark text-sm mb-6"
-          data-aos={dataAos[position]}
-          data-aos-duration="1000"
-          data-aos-delay="900"
         >
           {parent}
         </h6>
         <div
           className={`flex items-center gap-x-4 w-full ${pos[position]}`}
-          data-aos={dataAos[position]}
-          data-aos-duration="1000"
-          data-aos-delay="1200"
         >
           <Link href={url || ""}>
             <Button

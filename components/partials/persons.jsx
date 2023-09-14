@@ -1,21 +1,19 @@
 import React from "react";
 import PersonCard from "../elements/person.card";
-import { images } from "@/constants/images";
-import useThumbnail from "@/hooks/useThumbnail";
-import useCover from "@/hooks/useCover";
+import usePersons from "@/hooks/usePersons";
 
 const Persons = () => {
-  const { data: thumbnailImages } = useThumbnail(process.env.NEXT_PUBLIC_USER);
-  const { data: coverImages } = useCover(process.env.NEXT_PUBLIC_USER);
+  const { data } = usePersons(process.env.NEXT_PUBLIC_USER);
 
+  console.log({ data });
   return (
-    <div className="py-32 flex flex-col gap-y-24 max-w-md mx-auto w-full">
+    <div className="py-32 flex lg:grid lg:grid-cols-2 flex-col max-w-screen-md mx-auto gap-y-24 w-full">
       <PersonCard
         username="ariwiradana"
         name="I Made Ari Wiradana"
         parentTitle="Anak pertama dari :"
         parent="I Wayan Darmayasa"
-        images={thumbnailImages.thumbnails}
+        images={data.firstPerson}
         position="left"
       />
       <PersonCard
@@ -23,7 +21,7 @@ const Persons = () => {
         name="Ni Putu Juli Astuti"
         parentTitle="Anak pertama dari :"
         parent="I Wayan Darmayasa"
-        images={coverImages.covers}
+        images={data.secondPerson}
         position="right"
       />
     </div>

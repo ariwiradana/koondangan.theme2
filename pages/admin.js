@@ -116,7 +116,7 @@ const YourPage = () => {
                   className="rounded-lg object-cover object-center"
                 />
               </div>
-              <div className="my-3 flex flex-col gap-y-1">
+              <div className="my-3 flex flex-col gap-y-1 overflow-hidden">
                 <h2 className="text-xl font-semibold">
                   {card.original_filename}
                 </h2>

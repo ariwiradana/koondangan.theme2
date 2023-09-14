@@ -20,7 +20,7 @@ export default async (req, res) => {
         const data = await Image.find(query);
         res.status(200).json(data);
       } catch (error) {
-        res.status(500).json({ error: "Unable to fetch images." });
+        res.status(500).json({ error: true, message: error.message });
       }
       break;
     case "POST":
@@ -31,6 +31,13 @@ export default async (req, res) => {
         const newImage = files?.image[0];
         const type = fields?.type[0];
         const user = fields?.user[0];
+
+        const maxSizeInBytes = 3 * 1024 * 1024;
+
+        if (newImage.size > maxSizeInBytes) {
+          res.status(500).json({ error: true, message: "Image size too big" });
+          return;
+        }
 
         console.log("Resize image...");
         const resizedImage = await resizeImage(newImage.filepath);
@@ -101,7 +108,6 @@ async function uploadToCloudinary(buffer, options) {
       options,
       (error, result) => {
         if (error) {
-          return error.message;
           reject(error);
         } else {
           resolve(result);

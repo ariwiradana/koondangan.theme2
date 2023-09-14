@@ -11,18 +11,18 @@ const EventDetails = () => {
 
   return (
     <div
-      data-aos="fade-up"
-      data-aos-duration="2000"
-      className="bg-[url('/images/cover.webp')] relative w-full bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${
+          data?.thumbnails && data?.thumbnails?.length !== 0
+            ? data.thumbnails[0].url
+            : ""
+        })`,
+      }}
+      className={`relative w-full bg-cover bg-center`}
     >
       <div className="w-full h-full absolute inset-0 bg-dark bg-opacity-80 z-10"></div>
       <div className="py-14 relative z-20">
-        <div
-          className="flex items-center gap-x-8 mb-4 max-w-md mx-auto"
-          data-aos="fade-left"
-          data-aos-duration="2000"
-          data-aos-delay="300"
-        >
+        <div className="flex items-center gap-x-8 mb-4 max-w-md mx-auto">
           <div className="pl-8">
             <h3 className="font-analogue text-white text-4xl italic font-light">
               Wedding

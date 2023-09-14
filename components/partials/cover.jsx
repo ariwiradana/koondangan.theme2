@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css/effect-fade";
 import useCover from "@/hooks/useCover";
+import Image from "next/image";
 
 const CoverComponent = ({ togglePlayPause }) => {
   const { data, state } = useCover(process.env.NEXT_PUBLIC_USER);
@@ -12,13 +13,15 @@ const CoverComponent = ({ togglePlayPause }) => {
 
   return (
     <div
-      className="fixed top-0 inset-x-0 min-h-screen w-full transform transition-all ease-in-out duration-1000 z-50 bg-dark"
+      className="fixed inset-0 w-full transform transition-all ease-in-out duration-1000 bg-dark"
       style={{
         bottom: open ? "100%" : 0,
         opacity: open ? 0 : 1,
+        zIndex: open ? 0 : 999,
       }}
     >
       <Swiper
+        className="h-screen"
         onSlideChange={(slide) => console.log(slide)}
         autoplay={{
           delay: 2500,
@@ -29,13 +32,14 @@ const CoverComponent = ({ togglePlayPause }) => {
         modules={[Autoplay, EffectFade]}
       >
         {data?.covers?.map((image) => (
-          <SwiperSlide key={image._id}>
-            <div
-              style={{
-                backgroundImage: `url(${image?.url})`,
-              }}
-              className={`h-screen w-full bg-cover bg-center flex items-end justify-center`}
-            ></div>
+          <SwiperSlide key={image._id} className="h-screen">
+            <Image
+              src={image?.url}
+              priority
+              alt={image?._id}
+              fill
+              className="object-cover"
+            />
           </SwiperSlide>
         ))}
       </Swiper>

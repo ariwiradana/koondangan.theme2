@@ -5,7 +5,7 @@ const ButtonMusic = ({ isPlaying, audioRef, togglePlayPause }) => {
   return (
     <>
       <audio ref={audioRef} src="/music/music.mp3" />
-      <div className="bottom-5 right-5 z-[999] fixed">
+      <div className="bottom-5 right-5 z-[998] fixed">
         <button onClick={togglePlayPause}>
           {isPlaying ? (
             <BsPauseFill className="text-dark bg-white h-9 w-9 rounded-full border-4 hover:border-white hover:text-white hover:bg-dark border-gray-300 flex justify-center items-center p-1 transition-colors ease-in-out duration-500" />

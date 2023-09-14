@@ -39,8 +39,6 @@ const EventDetailCard = ({
   return (
     <div
       className="p-8 max-w-md mx-auto relative"
-      data-aos={dataAos[position]}
-      data-aos-duration="2000"
     >
       <Swiper
         loop
@@ -58,11 +56,11 @@ const EventDetailCard = ({
           <SwiperSlide key={image?._id}>
             <div className="w-full h-[200px] relative">
               <Image
-                alt={image?.title}
+                alt={image?._id}
                 width={300}
                 height={300}
                 className="object-cover w-full h-full grayscale-0"
-                src={image?.base64}
+                src={image?.url}
               />
             </div>
           </SwiperSlide>
