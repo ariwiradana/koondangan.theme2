@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoMdMailOpen } from "react-icons/io";
 import { Button } from "../elements/button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css/effect-fade";
-import { images } from "@/constants/images";
 import useCover from "@/hooks/useCover";
 
 const CoverComponent = ({ togglePlayPause }) => {
@@ -13,7 +12,7 @@ const CoverComponent = ({ togglePlayPause }) => {
 
   return (
     <div
-      className="fixed h-screen w-full transform transition-all ease-in-out duration-1000 z-50 bg-dark"
+      className="fixed top-0 inset-x-0 min-h-screen w-full transform transition-all ease-in-out duration-1000 z-50 bg-dark"
       style={{
         bottom: open ? "100%" : 0,
         opacity: open ? 0 : 1,

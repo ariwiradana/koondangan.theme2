@@ -16,8 +16,8 @@ export default async (req, res) => {
   switch (req.method) {
     case "GET":
       try {
-        const { user, type } = req.query;
-        const data = await Image.find({ user, type });
+        const query = req.query || {};
+        const data = await Image.find(query);
         res.status(200).json(data);
       } catch (error) {
         res.status(500).json({ error: "Unable to fetch images." });
@@ -32,7 +32,7 @@ export default async (req, res) => {
         const type = fields?.type[0];
         const user = fields?.user[0];
 
-        console.log("Resize image...")
+        console.log("Resize image...");
         const resizedImage = await resizeImage(newImage.filepath, 50);
 
         const folder = "koondangan";
