@@ -9,7 +9,7 @@ const Persons = () => {
   const { data: coverImages } = useCover(process.env.NEXT_PUBLIC_USER);
 
   return (
-    <div className="py-32 flex flex-col gap-y-24 max-w-md mx-auto">
+    <div className="py-32 flex flex-col gap-y-24 max-w-md mx-auto w-full">
       <PersonCard
         username="ariwiradana"
         name="I Made Ari Wiradana"

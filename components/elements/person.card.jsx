@@ -30,7 +30,7 @@ const PersonCard = ({
   };
 
   return (
-    <div className={`flex flex-col ${pos[position]}`}>
+    <div className={`flex flex-col w-full ${pos[position]}`}>
       <div
         className="relative w-[300px] h-[400px] flex justify-end"
         data-aos={dataAos[position]}
