@@ -12,10 +12,11 @@ const useAdmin = (user) => {
   const [deleteLoading, setDeleteLoading] = useState("");
   const [addLoading, setAddLoading] = useState(false);
   const [openDialog, setOpenDialog] = useState("");
-  const { data: images, mutate } = useSWR(
-    `/api/image?user=${user}&type=${imgType}`,
-    fetcher
-  );
+  const {
+    data: images,
+    mutate,
+    isLoading,
+  } = useSWR(`/api/image?user=${user}&type=${imgType}`, fetcher);
 
   const handleChange = (value, mode, id) => {
     if (mode == "add") {
@@ -81,6 +82,7 @@ const useAdmin = (user) => {
       addLoading,
       openDialog,
       form,
+      isLoading,
     },
     data: {
       images,
