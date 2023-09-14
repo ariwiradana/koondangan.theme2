@@ -19,9 +19,9 @@ const Home = () => {
         togglePlayPause={togglePlayPause}
       />
       <CoverComponent togglePlayPause={togglePlayPause} />
-      {/* <ThumbnailComponent name={name} /> */}
-      <Person />
-      <EventDetails />
+      <ThumbnailComponent name={name} />
+      {/* <Person /> */}
+      {/* <EventDetails /> */}
     </>
   );
 };
