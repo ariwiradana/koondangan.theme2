@@ -31,38 +31,15 @@ const YourPage = () => {
       >
         <form onSubmit={handler.handleSubmitAdd}>
           <div mb={2}>
-            <FormControl
-              fullWidth
-              sx={{ m: 1, minWidth: 120 }}
-              size="small"
-              className="flex flex-col gap-y-4"
-            >
-              <InputLabel id="add-type">Type</InputLabel>
-              <Select
-                labelId="add-type"
-                id="demo-select-small"
-                value={state.form.imgType}
-                label="Type"
+            <div>
+              <input
                 onChange={(e) =>
-                  handler.handleChange(e.target.value, "add", "imgType")
+                  handler.handleChange(e.target.files, "add", "files")
                 }
-              >
-                {selectOptions?.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </Select>
-              <div>
-                <input
-                  onChange={(e) =>
-                    handler.handleChange(e.target.files, "add", "files")
-                  }
-                  type="file"
-                  accept="image/*"
-                />
-              </div>
-            </FormControl>
+                type="file"
+                accept="image/*"
+              />
+            </div>
             <div className="flex justify-end">
               <Button
                 loading={state.addLoading}

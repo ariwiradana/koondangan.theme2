@@ -53,7 +53,7 @@ const useAdmin = (user) => {
     try {
       const formData = new FormData();
       formData.append("image", form.files[0]);
-      formData.append("type", form.imgType);
+      formData.append("type", imgType);
       formData.append("user", process.env.NEXT_PUBLIC_USER);
 
       const response = await axios.post("/api/image", formData, {
