@@ -17,7 +17,7 @@ const CoverComponent = ({ togglePlayPause }) => {
       style={{
         bottom: open ? "100%" : 0,
         opacity: open ? 0 : 1,
-        zIndex: open ? 0 : 999,
+        zIndex: open ? -1 : 999,
       }}
     >
       <Swiper
